@@ -1,0 +1,217 @@
+/* ============================================
+   GlowMatch — стили приложения
+   Автор: Булохова Елена
+   ============================================ */
+
+/* --- Базовые настройки --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #fdf2f4 0%, #f9e4e8 100%);
+    color: #4a3f42;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 60px;
+}
+
+/* --- Шапка --- */
+.app-header {
+    background: linear-gradient(135deg, #e8b4b8 0%, #d99ba0 100%);
+    color: #fff;
+    padding: 25px 20px;
+    text-align: center;
+    border-radius: 0 0 25px 25px;
+    box-shadow: 0 4px 15px rgba(232, 180, 184, 0.4);
+    margin-bottom: 20px;
+}
+
+.app-header h1 {
+    font-size: 28px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* --- Основной контент --- */
+.app-main {
+    flex: 1;
+    padding: 0 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* --- Экраны --- */
+.screen {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.screen h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #7a5c62;
+    text-align: center;
+}
+
+/* --- Сетка категорий --- */
+.category-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.category-btn {
+    background: #fff;
+    border: 2px solid #f0d5d9;
+    border-radius: 18px;
+    padding: 25px 20px;
+    font-size: 18px;
+    color: #7a5c62;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(232, 180, 184, 0.15);
+}
+
+.category-btn:hover {
+    background: #fdf2f4;
+    border-color: #e8b4b8;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(232, 180, 184, 0.35);
+}
+
+.category-btn .icon {
+    font-size: 28px;
+}
+
+/* --- Кнопка "Назад" --- */
+.back-btn {
+    background: transparent;
+    border: none;
+    color: #b08890;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 8px 0;
+    margin-bottom: 10px;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: #e8b4b8;
+}
+
+/* --- Список проблем --- */
+.problem-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.problem-btn {
+    background: #fff;
+    border: 1.5px solid #f0d5d9;
+    border-radius: 14px;
+    padding: 15px 20px;
+    font-size: 16px;
+    color: #5c4a4e;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.problem-btn:hover {
+    background: #fdf2f4;
+    border-color: #e8b4b8;
+    padding-left: 25px;
+}
+
+/* --- Карточки товаров --- */
+.results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 4px 12px rgba(232, 180, 184, 0.2);
+    border-left: 5px solid #e8b4b8;
+    animation: fadeIn 0.5s ease;
+}
+
+.product-card h3 {
+    font-size: 17px;
+    color: #7a5c62;
+    margin-bottom: 8px;
+}
+
+.product-card .description {
+    font-size: 14px;
+    color: #8a7a7e;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.product-card .status {
+    display: inline-block;
+    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.status.available {
+    background: #e6f4ea;
+    color: #2e7d4f;
+}
+
+.status.unavailable {
+    background: #fbe9e7;
+    color: #c0392b;
+}
+
+/* --- Подвал --- */
+.app-footer {
+    text-align: center;
+    font-size: 12px;
+    color: #b08890;
+    padding: 20px;
+    margin-top: auto;
+}
+
+/* --- Адаптив для планшетов --- */
+@media (min-width: 500px) {
+    .category-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .category-btn:last-child {
+        grid-column: span 2;
+    }
+}

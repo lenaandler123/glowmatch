@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlowMatch — подбор косметики</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e8b4b8">
+</head>
+<body>
+
+    <!-- Шапка приложения -->
+    <header class="app-header">
+        <h1>GlowMatch</h1>
+        <p class="subtitle">Помощник консультанта «Новэкс»</p>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="app-main">
+
+        <!-- Экран 1: Выбор категории -->
+        <section id="screen-category" class="screen active">
+            <h2>Что подбираем?</h2>
+            <div class="category-grid">
+                <button class="category-btn" data-category="face">
+                    <span class="icon">💧</span>
+                    <span>Уход за лицом</span>
+                </button>
+                <button class="category-btn" data-category="hair">
+                    <span class="icon">💇</span>
+                    <span>Уход за волосами</span>
+                </button>
+                <button class="category-btn" data-category="perfume">
+                    <span class="icon">🌸</span>
+                    <span>Парфюмерия</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Экран 2: Выбор проблемы -->
+        <section id="screen-problem" class="screen">
+            <button class="back-btn" id="back-to-category">← Назад</button>
+            <h2 id="problem-title">Выберите проблему</h2>
+            <div id="problem-list" class="problem-list">
+                <!-- Список проблем будет сгенерирован через JavaScript -->
+            </div>
+        </section>
+
+        <!-- Экран 3: Результаты -->
+        <section id="screen-results" class="screen">
+            <button class="back-btn" id="back-to-problem">← Назад</button>
+            <h2 id="results-title">Подходящие средства</h2>
+            <div id="results-list" class="results-list">
+                <!-- Карточки товаров будут сгенерированы через JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Подвал -->
+    <footer class="app-footer">
+        <p>© 2027 GlowMatch. Учебный проект.</p>
+    </footer>
+
+<script src="script.js"></script>
+
+    <!-- Регистрация Service Worker для офлайн-режима -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker
+                    .register("./service-worker.js")
+                    .then((reg) => console.log("Service Worker зарегистрирован:", reg.scope))
+                    .catch((err) => console.log("Ошибка регистрации Service Worker:", err));
+            });
+        }
+    </script>
+</body>
+</html>
