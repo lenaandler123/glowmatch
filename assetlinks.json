@@ -1,0 +1,9 @@
+.well-known/assetlinks.json
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.example.glowmatch",
+        "sha256_cert_fingerprints": ["DD:DD:A7:A6:46:BE:31:08:E5:16:3A:6B:83:7E:2F:A4:D2:5A:A8:09:A2:7B:A9:49:7E:A0:24:90:17:48:79:76"]
+      }
+    }]
